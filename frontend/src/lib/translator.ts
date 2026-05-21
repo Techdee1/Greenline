@@ -4,10 +4,7 @@
 const AZURE_KEY = process.env.NEXT_PUBLIC_AZURE_TRANSLATOR_KEY;
 const AZURE_ENDPOINT = process.env.NEXT_PUBLIC_AZURE_TRANSLATOR_ENDPOINT || 'https://api.cognitive.microsofttranslator.com';
 const AZURE_REGION = process.env.NEXT_PUBLIC_AZURE_TRANSLATOR_REGION || 'southafricanorth';
-
-if (!AZURE_KEY) {
-  console.error('⚠️  AZURE_TRANSLATOR_KEY not configured. Translation will not work.');
-}
+let hasWarnedMissingKey = false;
 
 export type Language = 'en' | 'ig' | 'yo' | 'ha';
 
@@ -20,7 +17,13 @@ export const LANGUAGES = {
 
 export async function translateText(text: string, targetLanguage: Language): Promise<string> {
   if (targetLanguage === 'en') return text;
-  if (!AZURE_KEY) return text; // Return original text if API key not configured
+  if (!AZURE_KEY) {
+    if (!hasWarnedMissingKey) {
+      console.warn('⚠️  AZURE_TRANSLATOR_KEY not configured. Translation will not work.');
+      hasWarnedMissingKey = true;
+    }
+    return text; // Return original text if API key not configured
+  }
 
   console.log(`[Translator] Translating to ${targetLanguage}:`, text.substring(0, 50));
 
@@ -59,7 +62,13 @@ export async function translateMultiple(
   targetLanguage: Language
 ): Promise<string[]> {
   if (targetLanguage === 'en') return texts;
-  if (!AZURE_KEY) return texts; // Return original texts if API key not configured
+  if (!AZURE_KEY) {
+    if (!hasWarnedMissingKey) {
+      console.warn('⚠️  AZURE_TRANSLATOR_KEY not configured. Translation will not work.');
+      hasWarnedMissingKey = true;
+    }
+    return texts; // Return original texts if API key not configured
+  }
 
   console.log(`[Translator] Batch translating ${texts.length} texts to ${targetLanguage}`);
 

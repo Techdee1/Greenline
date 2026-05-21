@@ -25,7 +25,7 @@ export default function DashboardPage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   
   // Fetch dashboard data with React Query
-  const farmId = '1'; // Default farm - Amina's Maize Farm
+  const farmId = '1'; // Default farm - Musa's Katsina farm unit
   const { farm, sensors, risk, forecast, isLoading, isError } = useDashboardData(farmId);
   const { data: recommendations } = useRecommendations(farmId);
 
@@ -159,10 +159,10 @@ export default function DashboardPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-[14px] font-semibold text-[var(--color-soil)]">
-                      {show3DView ? 'Farm 3D View' : 'Digital Twin'}
+                      {show3DView ? 'Farm 3D View' : 'Field Twin'}
                     </h3>
                     <p className="text-[11px] text-[var(--color-stone)]">
-                      {show3DView ? 'Interactive farm visualization' : 'Real-time farm visualization'}
+                      {show3DView ? 'Interactive farm visualization' : 'Real-time zai pit visualization'}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -285,7 +285,7 @@ export default function DashboardPage() {
             <Card variant="bento">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-[14px] font-semibold text-[var(--color-soil)]">Growth Progress</h3>
+                  <h3 className="text-[14px] font-semibold text-[var(--color-soil)]">Season Progress</h3>
                   <div className="flex items-center gap-1 text-[11px] text-[var(--color-stone)]">
                     <Calendar className="w-3 h-3" />
                     48 days left
@@ -339,16 +339,16 @@ export default function DashboardPage() {
                 <h3 className="text-[14px] font-semibold text-[var(--color-soil)] mb-4">Quick Actions</h3>
                 <div className="grid grid-cols-2 gap-2">
                   <Button variant="primary" size="sm" className="text-[12px]">
-                    Schedule Irrigation
+                    Release Cistern Water
                   </Button>
                   <Button variant="outline" size="sm" className="text-[12px]">
-                    View Report
+                    View Pilot Report
                   </Button>
                   <Button variant="ghost" size="sm" className="text-[12px]">
                     Export Data
                   </Button>
                   <Button variant="ghost" size="sm" className="text-[12px]">
-                    Settings
+                    System Settings
                   </Button>
                 </div>
               </CardContent>
@@ -365,7 +365,7 @@ export default function DashboardPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-[16px] font-semibold text-[var(--color-soil)]">
-                      {show3DView ? 'Farm 3D View' : 'Holographic Digital Twin'}
+                      {show3DView ? 'Farm 3D View' : 'Holographic Field Twin'}
                     </h3>
                     <p className="text-[12px] text-[var(--color-stone)]">
                       {farmData.name} · Stress Index: {riskData?.overallRisk || 25}%

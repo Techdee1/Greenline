@@ -18,25 +18,25 @@ import {
 export default function LandingPage() {
   // Navigation translations
   const nav = useTranslations({
-    problem: 'Problem',
-    solution: 'Solution',
-    story: 'Story',
-    metrics: 'Metrics',
+    problem: 'Crisis',
+    solution: 'Innovation',
+    story: 'Case Study',
+    metrics: 'Economics',
     dashboard: 'Dashboard',
   });
 
   // Hero section translations
   const hero = useTranslations({
-    badge: 'AI-Powered Farm Intelligence',
-    headline1: 'Give Farmers Foresight.',
-    headline2: 'Stop Climate Losses',
-    headline3: 'Before They Happen.',
-    subtitle: 'An AI farm co-pilot that lets smallholder farmers test "what-if" scenarios and receive SMS-based guidance.',
-    cta1: 'Scale with Us',
-    cta2: 'View Live Demo',
-    stat1Label: 'SMS Delivery',
-    stat2Label: 'Sensor Latency',
-    stat3Label: 'Prediction Accuracy',
+    badge: 'Green Line Climate Resilience',
+    headline1: 'Climate Resilience',
+    headline2: 'for Northern Nigeria.',
+    headline3: 'Water you can count on.',
+    subtitle: 'Intelligence before the damage happens: decentralized water infrastructure plus Demeter AI sensors for 14-day drought foresight in Hausa and English.',
+    cta1: 'Request Pilot Funding',
+    cta2: 'View Pitch Deck',
+    stat1Label: 'Forecast Window',
+    stat2Label: 'No Smartphone Needed',
+    stat3Label: 'Per Farm Unit',
     scrollText: 'Scroll to explore',
   });
 
@@ -44,95 +44,95 @@ export default function LandingPage() {
   const problem = useTranslations({
     badge: 'The Crisis',
     title1: 'Climate Volatility is Devastating',
-    title2: 'Smallholder Farmers',
-    subtitle: 'Without predictive tools, farmers make critical decisions in the dark—often with catastrophic consequences.',
-    stat1Value: '$4B+',
-    stat1Title: 'Annual Maize Loss',
-    stat1Desc: 'in Sub-Saharan Africa due to climate volatility and lack of predictive tools',
-    stat2Value: '30-50%',
-    stat2Title: 'Yield Loss',
-    stat2Desc: 'from a single misjudged irrigation decision during a critical dry spell',
-    stat3Value: '0',
-    stat3Title: 'Days Warning',
-    stat3Desc: 'Traditional methods provide no advance notice, leaving farmers reactive instead of proactive',
+    title2: 'Northern Nigeria',
+    subtitle: 'Smallholders make life-or-death decisions with zero data and no safety net.',
+    stat1Value: '$1B',
+    stat1Title: 'Crop Losses',
+    stat1Desc: 'lost in October 2024 in just 15 days due to extreme weather shocks',
+    stat2Value: '90%',
+    stat2Title: 'Lake Chad Shrinkage',
+    stat2Desc: 'loss of volume since 1980, collapsing local water security',
+    stat3Value: '30.1M',
+    stat3Title: 'People in Poverty',
+    stat3Desc: 'living in abject poverty, per FAO estimates',
   });
 
   // Solution section translations
   const solution = useTranslations({
-    badge: 'The Solution',
-    title: 'Your Digital Farm Twin',
-    subtitle: 'From sensor to SMS: Real-time intelligence that turns uncertainty into actionable insights.',
-    step1Title: 'ESP32 Sensors Capture Data',
-    step1Desc: 'Soil moisture, temperature, and humidity readings every 15 minutes from your field.',
-    step2Title: 'Real-Time Data Pipeline',
-    step2Desc: 'LoRaWAN gateway transmits data to cloud infrastructure with <5s latency.',
-    step3Title: 'ML Ensemble Predictions',
-    step3Desc: 'Random Forest + XGBoost models generate 14-day stress forecasts with ±15% accuracy.',
-    step4Title: "SMS Guidance via Africa's Talking",
-    step4Desc: "Actionable advice delivered in Hausa: 'Irrigate Zone A in 48 hours to prevent 20% yield loss.'",
+    badge: 'The Innovation',
+    title: 'Three Layers, One Resilient System',
+    subtitle: 'Physical water security, intelligence in the soil, and action that reaches every farmer.',
+    step1Title: 'Ferrocement Cisterns Store Rain',
+    step1Desc: 'Decentralized underground storage eliminates evaporation and protects against dry spells.',
+    step2Title: 'Demeter Sensors in Zai Pits',
+    step2Desc: 'ESP32 + capacitive moisture + DHT22 track root-zone micro-climates without disturbing crops.',
+    step3Title: 'ML Ensemble Predicts Stress',
+    step3Desc: 'LSTM + Random Forest models forecast crop stress 14 days before visible damage.',
+    step4Title: 'SMS + Solar Micro-Pumping',
+    step4Desc: "Hausa/English alerts guide precise water release from cisterns—no smartphone or internet needed.",
     liveData: 'Live Data',
     updated: 'Updated 2 min ago',
   });
 
-  // Amina story section translations
+  // Musa story section translations
   const story = useTranslations({
     badge: 'Real Impact',
-    title: 'Meet Amina',
-    subtitle: "A 38-year-old maize farmer from Kaduna State with 1.5 hectares. Here's how Demeter could transform her farming operations.",
-    badge1: 'LAST SEASON',
-    badge2: 'WITH DEMETER',
-    before1Title: 'Lost 45% last season',
-    before1Desc: 'Delayed irrigation during a 7-day dry spell caused permanent wilting',
+    title: 'The Story of Musa',
+    subtitle: "Last August in Katsina, Musa watched his maize curl and die in 14 days. Green Line gives him time.",
+    badge1: 'LAST AUGUST',
+    badge2: 'WITH GREEN LINE',
+    before1Title: 'Lost half his harvest',
+    before1Desc: 'Rains stopped with no warning and maize curled in 14 days',
     before2Title: 'No advance warning system',
-    before2Desc: 'Only noticed crop stress after visible symptoms appeared',
-    before3Title: 'Previous income loss: ₦340,000',
-    before3Desc: "Could not afford children's school fees that year",
+    before2Desc: 'Only saw stress when it was already too late to react',
+    before3Title: 'Sold his last goat for grain',
+    before3Desc: 'Grain prices tripled during the dry season',
     after1Title: '14-day early warnings',
-    after1Desc: 'SMS alerts in Hausa: "Stress forecasted. Irrigate 25mm in 48 hours."',
-    after2Title: 'Real-time field monitoring',
-    after2Desc: 'ESP32 sensors track soil moisture every 15 minutes with actionable insights',
-    after3Title: 'Projected savings: ₦280,000+',
-    after3Desc: 'Preventing losses means stable income for her family',
-    quote: "If I had this system, I wouldn't have to guess when to irrigate anymore. Getting SMS warnings in Hausa before my crops are stressed—that would be like having an expert watching my farm 24/7.",
-    quoteName: 'Amina Ibrahim',
-    quoteTitle: 'Maize Farmer, Kaduna State',
+    after1Desc: 'SMS alerts in Hausa: "Stress forecasted. Release cistern water in 48 hours."',
+    after2Title: 'Root-zone intelligence',
+    after2Desc: 'Demeter sensors measure zai pit micro-climates without root disturbance',
+    after3Title: 'Saved half the harvest',
+    after3Desc: 'Stored water + early alerts preserve food and income',
+    quote: "If I had known 14 days earlier, I could have saved half my harvest. Getting a Hausa warning before the damage starts would change everything.",
+    quoteName: 'Musa',
+    quoteTitle: 'Maize Farmer, Katsina State',
   });
 
   // Metrics section translations
   const metrics = useTranslations({
-    badge: 'Technical Excellence',
-    title: 'Built for Reliability',
-    subtitle: 'Validated performance metrics across 200+ farm deployments in Northern Nigeria.',
-    metric1Label: 'Forecast Accuracy',
-    metric1Desc: 'vs FAO baseline',
-    metric1Benchmark: 'Industry standard: ±25%',
-    metric2Label: 'Real-Time Latency',
-    metric2Desc: 'sensor-to-prediction',
-    metric2Benchmark: 'Faster than 98% of IoT farms',
-    metric3Label: 'SMS Delivery',
-    metric3Desc: "via Africa's Talking",
-    metric3Benchmark: '3-network redundancy',
-    stat1: 'Active Farms',
+    badge: 'Unit Economics',
+    title: 'Smallholder ROI Engine',
+    subtitle: 'Modeled on a 1.5-hectare northern maize farm with ₦43,450 total deployment cost.',
+    metric1Label: 'Payback Period',
+    metric1Desc: 'first harvest cycle',
+    metric1Benchmark: 'Pays for itself within 6 weeks',
+    metric2Label: 'Year 1 ROI',
+    metric2Desc: 'net income uplift',
+    metric2Benchmark: '26.5x return vs baseline',
+    metric3Label: 'Yield Lift',
+    metric3Desc: 'from zai pit optimization',
+    metric3Benchmark: 'Up to +70% harvest gain',
+    stat1: 'Farm Unit Size',
     stat2: 'Forecast Window',
-    stat3: 'Uptime',
-    stat4: 'Setup Cost',
+    stat3: 'Unit Cost',
+    stat4: 'Pilot Ask',
   });
 
   // CTA section translations
   const cta = useTranslations({
-    title: 'Ready to Scale Impact?',
-    subtitle: 'Partner with us to deploy Demeter across your cooperative network. Enterprise-grade support, custom integrations, and white-label options available.',
-    btn1: 'Schedule a Call',
-    btn2: 'Download Case Study',
-    trust1: 'Open Source',
-    trust2: 'API Access',
-    trust3: 'On-Premise Option',
-    trust4: 'GDPR Compliant',
+    title: 'Pilot Funding Request: ₦2,000,000',
+    subtitle: 'Back five pilot farms across the Northeast, Northwest, and Middle Belt to prove the model and scale across 100+ LGAs.',
+    btn1: 'Partner With Green Line',
+    btn2: 'Download Budget',
+    trust1: 'Hausa + English SMS',
+    trust2: 'IP67 Ruggedized',
+    trust3: 'Solar-Capped',
+    trust4: 'Zai Pit Compatible',
   });
 
   // Footer translations
   const footer = useTranslations({
-    description: 'AI-powered farm intelligence for smallholder farmers across Sub-Saharan Africa.',
+    description: 'Climate resilience infrastructure for smallholder farmers in Northern Nigeria.',
     resources: 'Resources',
     github: 'GitHub',
     documentation: 'Documentation',
@@ -142,7 +142,7 @@ export default function LandingPage() {
     solution: 'Solution',
     metricsLink: 'Metrics',
     poweredBy: 'Powered By',
-    copyright: '© 2026 Demeter. Built for BeOrchid Africa Hackathon.',
+    copyright: '© 2026 Green Line. UNILAG Design Studio Design Competition.',
     privacy: 'Privacy',
     terms: 'Terms',
     contact: 'Contact',
@@ -156,7 +156,7 @@ export default function LandingPage() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <Sprout className="w-7 h-7 text-[#1B4332]" />
-              <span className="text-[20px] font-semibold text-[#1B4332] tracking-tight">Demeter</span>
+              <span className="text-[20px] font-semibold text-[#1B4332] tracking-tight">Green Line</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <a href="#problem" className="text-[14px] text-[#1B4332]/70 hover:text-[#1B4332] transition-colors">
@@ -245,15 +245,15 @@ export default function LandingPage() {
             {/* Quick Stats */}
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div className="text-center">
-                <p className="text-[32px] font-bold text-[#E2725B]">95%+</p>
+                <p className="text-[32px] font-bold text-[#E2725B]">14 days</p>
                 <p className="text-[13px] text-white/70">{hero.stat1Label}</p>
               </div>
               <div className="text-center">
-                <p className="text-[32px] font-bold text-[#E2725B]">&lt;5s</p>
+                <p className="text-[32px] font-bold text-[#E2725B]">0</p>
                 <p className="text-[13px] text-white/70">{hero.stat2Label}</p>
               </div>
               <div className="text-center">
-                <p className="text-[32px] font-bold text-[#E2725B]">±15%</p>
+                <p className="text-[32px] font-bold text-[#E2725B]">₦43,450</p>
                 <p className="text-[13px] text-white/70">{hero.stat3Label}</p>
               </div>
             </div>
@@ -398,19 +398,19 @@ export default function LandingPage() {
           {/* Tech Stack Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-12 border-t border-[#1B4332]/10">
             <TechBadge name="ESP32" />
-            <TechBadge name="LoRaWAN" />
+            <TechBadge name="DHT22" />
+            <TechBadge name="Capacitive Moisture" />
+            <TechBadge name="LSTM" />
             <TechBadge name="Random Forest" />
-            <TechBadge name="XGBoost" />
-            <TechBadge name="Next.js 16" />
-            <TechBadge name="Python FastAPI" />
-            <TechBadge name="Africa's Talking" />
-            <TechBadge name="Railway" />
-            <TechBadge name="Vercel" />
+            <TechBadge name="Zai Pits" />
+            <TechBadge name="Ferrocement Cisterns" />
+            <TechBadge name="SMS (Hausa/English)" />
+            <TechBadge name="Solar Micro-Pumps" />
           </div>
         </div>
       </section>
 
-      {/* User Story - Amina Section */}
+      {/* User Story - Musa Section */}
       <section id="story" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -432,7 +432,7 @@ export default function LandingPage() {
             <Card variant="bento" className="p-8 relative overflow-hidden">
               <div className="absolute top-4 right-4 z-10">
                 <div className="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
-                  <span className="text-[11px] font-semibold text-red-600">LAST SEASON</span>
+                  <span className="text-[11px] font-semibold text-red-600">LAST AUGUST</span>
                 </div>
               </div>
               
@@ -447,9 +447,9 @@ export default function LandingPage() {
                     <span className="text-[12px] font-bold text-red-600">✕</span>
                   </div>
                   <div>
-                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Lost 45% last season</p>
+                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Lost half his harvest</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      Delayed irrigation during a 7-day dry spell caused permanent wilting
+                      Rains stopped and maize curled over 14 days with no warning
                     </p>
                   </div>
                 </div>
@@ -460,7 +460,7 @@ export default function LandingPage() {
                   <div>
                     <p className="text-[16px] font-semibold text-[#1B4332] mb-1">No advance warning system</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      Only noticed crop stress after visible symptoms appeared
+                      Only saw stress when it was already too late to react
                     </p>
                   </div>
                 </div>
@@ -469,9 +469,9 @@ export default function LandingPage() {
                     <span className="text-[12px] font-bold text-red-600">✕</span>
                   </div>
                   <div>
-                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Previous income loss: ₦340,000</p>
+                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Sold his last goat for grain</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      Could not afford children's school fees that year
+                      Grain prices tripled during the dry season
                     </p>
                   </div>
                 </div>
@@ -482,7 +482,7 @@ export default function LandingPage() {
             <Card variant="bento" className="p-8 relative overflow-hidden border-2 border-[#1B4332]">
               <div className="absolute top-4 right-4 z-10">
                 <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20">
-                  <span className="text-[11px] font-semibold text-green-600">WITH DEMETER</span>
+                  <span className="text-[11px] font-semibold text-green-600">WITH GREEN LINE</span>
                 </div>
               </div>
               
@@ -499,7 +499,7 @@ export default function LandingPage() {
                   <div>
                     <p className="text-[16px] font-semibold text-[#1B4332] mb-1">14-day early warnings</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      SMS alerts in Hausa: "Stress forecasted. Irrigate 25mm in 48 hours."
+                      SMS alerts in Hausa: "Stress forecasted. Release cistern water in 48 hours."
                     </p>
                   </div>
                 </div>
@@ -508,9 +508,9 @@ export default function LandingPage() {
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Real-time field monitoring</p>
+                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Root-zone intelligence</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      ESP32 sensors track soil moisture every 15 minutes with actionable insights
+                      Demeter sensors measure zai pit micro-climates without root disturbance
                     </p>
                   </div>
                 </div>
@@ -519,9 +519,9 @@ export default function LandingPage() {
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Projected savings: ₦280,000+</p>
+                    <p className="text-[16px] font-semibold text-[#1B4332] mb-1">Saved half the harvest</p>
                     <p className="text-[14px] text-[#1B4332]/60">
-                      Preventing losses means stable income for her family
+                      Stored water + early alerts preserve food and income
                     </p>
                   </div>
                 </div>
@@ -533,17 +533,16 @@ export default function LandingPage() {
           <div className="mt-12 text-center">
             <Card variant="bento" className="p-8 max-w-3xl mx-auto bg-gradient-to-br from-[#1B4332] to-[#1B4332]/90">
               <p className="text-[20px] md:text-[24px] text-white/95 italic mb-4 leading-relaxed">
-                "If I had this system, I wouldn't have to guess when to irrigate anymore. 
-                Getting SMS warnings in Hausa before my crops are stressed—that would be like 
-                having an expert watching my farm 24/7."
+                "If I had known 14 days earlier, I could have saved half my harvest. 
+                Getting a Hausa warning before the damage starts would change everything."
               </p>
               <div className="flex items-center justify-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-[#E2725B]/20 flex items-center justify-center">
-                  <span className="text-[18px] font-semibold text-white">A</span>
+                  <span className="text-[18px] font-semibold text-white">M</span>
                 </div>
                 <div className="text-left">
-                  <p className="text-[16px] font-semibold text-white">Amina Ibrahim</p>
-                  <p className="text-[13px] text-white/70">Maize Farmer, Kaduna State</p>
+                  <p className="text-[16px] font-semibold text-white">Musa</p>
+                  <p className="text-[13px] text-white/70">Maize Farmer, Katsina State</p>
                 </div>
               </div>
             </Card>
@@ -570,37 +569,37 @@ export default function LandingPage() {
           {/* Metrics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <MetricCard
-              label="Forecast Accuracy"
-              value="±15%"
-              description="vs FAO baseline"
-              benchmark="Industry standard: ±25%"
+              label="Payback Period"
+              value="6 weeks"
+              description="first harvest cycle"
+              benchmark="Pays for itself within one season"
               color="#1B4332"
-              percentage={94}
+              percentage={86}
             />
             <MetricCard
-              label="Real-Time Latency"
-              value="<5s"
-              description="sensor-to-prediction"
-              benchmark="Faster than 98% of IoT farms"
+              label="Year 1 ROI"
+              value="26.5x"
+              description="net income uplift"
+              benchmark="Modeled vs traditional baseline"
               color="#E2725B"
-              percentage={96}
+              percentage={92}
             />
             <MetricCard
-              label="SMS Delivery"
-              value=">95%"
-              description="via Africa's Talking"
-              benchmark="3-network redundancy"
+              label="Yield Lift"
+              value="+70%"
+              description="zai pit optimization"
+              benchmark="From 2.25t to 3.8t per farm"
               color="#1B4332"
-              percentage={97}
+              percentage={90}
             />
           </div>
 
           {/* Additional Metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <StatCard value="200+" label="Active Farms" />
+            <StatCard value="1.5-2.0 ha" label="Farm Unit Size" />
             <StatCard value="14 days" label="Forecast Window" />
-            <StatCard value="99.2%" label="Uptime" />
-            <StatCard value="<$50" label="Setup Cost" />
+            <StatCard value="₦43,450" label="Unit Cost" />
+            <StatCard value="₦2,000,000" label="Pilot Ask" />
           </div>
         </div>
       </section>
@@ -640,19 +639,19 @@ export default function LandingPage() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#E2725B]" />
-              <span className="text-[14px] text-white/80">Open Source</span>
+              <span className="text-[14px] text-white/80">Hausa + English SMS</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#E2725B]" />
-              <span className="text-[14px] text-white/80">API Access</span>
+              <span className="text-[14px] text-white/80">IP67 Ruggedized</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#E2725B]" />
-              <span className="text-[14px] text-white/80">On-Premise Option</span>
+              <span className="text-[14px] text-white/80">Solar-Capped</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#E2725B]" />
-              <span className="text-[14px] text-white/80">GDPR Compliant</span>
+              <span className="text-[14px] text-white/80">Zai Pit Compatible</span>
             </div>
           </div>
         </div>
@@ -666,10 +665,10 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Sprout className="w-6 h-6 text-[#E2725B]" />
-                <span className="text-[18px] font-semibold text-white">Demeter</span>
+                <span className="text-[18px] font-semibold text-white">Green Line</span>
               </div>
               <p className="text-[13px] text-white/60 leading-relaxed">
-                AI-powered farm intelligence for smallholder farmers across Sub-Saharan Africa.
+                Climate resilience infrastructure for smallholder farmers in Northern Nigeria.
               </p>
             </div>
 
@@ -743,7 +742,7 @@ export default function LandingPage() {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[12px] text-white/50">
-              © 2026 Demeter. Built for BeOrchid Africa Hackathon.
+              © 2026 Green Line. UNILAG Design Studio Design Competition.
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="text-[12px] text-white/50 hover:text-white transition-colors">

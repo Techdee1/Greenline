@@ -162,7 +162,7 @@ function MinimalGauge({ value, color, riskLabel, showLabel, animate, config, con
             {Math.round(value)}
           </motion.span>
           <span className="text-[var(--color-stone)] text-[11px] -mt-0.5">
-            Risk Index
+            Stress Index
           </span>
         </div>
       </div>

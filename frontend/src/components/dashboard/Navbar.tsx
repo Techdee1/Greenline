@@ -34,8 +34,8 @@ export function Navbar({ defaultFarmId = '1', onMenuClick }: NavbarProps) {
             <Sprout className="h-6 w-6 text-white animate-bounce-subtle" />
           </div>
           <div className="hidden sm:block">
-            <h1 className="font-display text-xl font-bold bg-gradient-to-r from-[#2D1F1A] to-[#E86B45] bg-clip-text text-transparent tracking-tight">Demeter</h1>
-            <p className="text-[11px] font-semibold text-[var(--color-bark)] tracking-wider uppercase">AI Farm Co-Pilot</p>
+            <h1 className="font-display text-xl font-bold bg-gradient-to-r from-[#2D1F1A] to-[#E86B45] bg-clip-text text-transparent tracking-tight">Green Line</h1>
+            <p className="text-[11px] font-semibold text-[var(--color-bark)] tracking-wider uppercase">Climate Resilience Dashboard</p>
           </div>
         </Link>
 

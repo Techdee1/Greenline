@@ -78,10 +78,10 @@ export function ForecastChart({
         <div className="flex items-center justify-between mb-5">
           <div>
             <h3 className="text-[15px] font-semibold text-[var(--color-soil)] tracking-tight">
-              14-Day Forecast
+              14-Day Stress Forecast
             </h3>
             <p className="text-[12px] text-[var(--color-stone)]">
-              Risk trajectory & conditions
+              Root-zone stress trajectory & conditions
             </p>
           </div>
           
