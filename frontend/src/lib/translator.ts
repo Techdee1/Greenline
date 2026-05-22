@@ -16,7 +16,7 @@ const HAUSA_MOCK_TRANSLATIONS: Record<string, string> = {
   'Climate Resilience': 'Jure Canjin Yanayi',
   'for Northern Nigeria.': 'ga Arewa Najeriya.',
   'Water you can count on.': 'Ruwa da za ka dogara da shi.',
-  'Intelligence before the damage happens: decentralized water infrastructure plus Demeter AI sensors for 14-day drought foresight in Hausa and English.': 'Hankali kafin barna: rumbun ruwa da aka rarraba da na'urorin Demeter AI don hangen fari na kwanaki 14 a Hausa da Turanci.',
+  'Intelligence before the damage happens: decentralized water infrastructure plus Demeter AI sensors for 14-day drought foresight in Hausa and English.': "Hankali kafin barna: rumbun ruwa da aka rarraba da na'urorin Demeter AI don hangen fari na kwanaki 14 a Hausa da Turanci.",
   'Request Pilot Funding': 'Nemi Kudin Gwaji',
   'View Pitch Deck': 'Duba Pitch Deck',
   'Forecast Window': 'Lokacin Hasashe',
