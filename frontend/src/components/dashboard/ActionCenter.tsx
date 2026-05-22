@@ -27,38 +27,38 @@ interface ActionScenario {
 const scenarios: ActionScenario[] = [
   {
     id: 'IRRIGATION',
-    label: 'Smart Irrigation',
-    description: '25mm water cycle',
+    label: 'Release Cistern Water',
+    description: 'Micro-dose 25mm into pits',
     icon: Droplets,
     color: '#3B82F6',
-    impact: { yield: 5, risk: -20, confidence: 87 },
+    impact: { yield: 18, risk: -28, confidence: 90 },
     ghostLineData: [0, 2, 5, 8, 12, 15, 18, 20],
   },
   {
     id: 'FERTILIZER',
-    label: 'NPK Boost',
-    description: 'Optimal nutrient mix',
+    label: 'Zai Pit Mulch',
+    description: 'Organic cover + compost',
     icon: Leaf,
     color: '#059669',
-    impact: { yield: 8, risk: -5, confidence: 92 },
+    impact: { yield: 10, risk: -8, confidence: 88 },
     ghostLineData: [0, 3, 7, 12, 16, 20, 24, 28],
   },
   {
     id: 'HEAVY_RAIN',
-    label: 'Rain Forecast',
-    description: '50mm expected',
+    label: 'Rain Pulse',
+    description: '40mm localized event',
     icon: CloudRain,
     color: '#8B5CF6',
-    impact: { yield: -3, risk: 15, confidence: 74 },
+    impact: { yield: 4, risk: -10, confidence: 76 },
     ghostLineData: [0, -1, -3, -5, -6, -4, -2, 0],
   },
   {
     id: 'HEAT_WAVE',
-    label: 'Heat Alert',
-    description: '+5°C for 5 days',
+    label: 'Heat Shield',
+    description: '+5°C for 4 days',
     icon: Sun,
     color: '#F59E0B',
-    impact: { yield: -12, risk: 35, confidence: 81 },
+    impact: { yield: -9, risk: 26, confidence: 83 },
     ghostLineData: [0, -2, -5, -8, -12, -14, -12, -10],
   },
 ];
@@ -101,7 +101,7 @@ export function ActionCenter({ onSelectAction, selectedAction: externalSelected,
             Action Center
           </h3>
           <p className="text-[12px] text-[var(--color-stone)]">
-            Preview yield impact before acting
+            Preview impact before you release water
           </p>
         </div>
         <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">

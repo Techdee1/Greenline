@@ -15,10 +15,10 @@ import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, Cartesia
 
 // Soil moisture data by zone
 const moistureByZone = [
-  { zone: 'North Field', moisture: 42, optimal: 65, status: 'critical', lastIrrigation: '3 days ago', nextScheduled: 'Today, 6:00 AM' },
-  { zone: 'South Field', moisture: 58, optimal: 65, status: 'moderate', lastIrrigation: '1 day ago', nextScheduled: 'Tomorrow, 6:00 AM' },
-  { zone: 'East Field', moisture: 68, optimal: 65, status: 'optimal', lastIrrigation: '12 hours ago', nextScheduled: 'In 2 days' },
-  { zone: 'West Field', moisture: 52, optimal: 65, status: 'moderate', lastIrrigation: '2 days ago', nextScheduled: 'Today, 2:00 PM' },
+  { zone: 'Pit Line A', moisture: 33, optimal: 65, status: 'critical', lastIrrigation: '4 days ago', nextScheduled: 'Today, 5:30 AM' },
+  { zone: 'Pit Line B', moisture: 46, optimal: 65, status: 'moderate', lastIrrigation: '2 days ago', nextScheduled: 'Tomorrow, 5:30 AM' },
+  { zone: 'Pit Line C', moisture: 58, optimal: 65, status: 'moderate', lastIrrigation: '1 day ago', nextScheduled: 'In 2 days' },
+  { zone: 'Pit Line D', moisture: 66, optimal: 65, status: 'optimal', lastIrrigation: '10 hours ago', nextScheduled: 'In 3 days' },
 ];
 
 // Historical water usage (liters)
@@ -48,38 +48,38 @@ const moistureTrendData = [
 // Irrigation schedule for next 7 days
 const irrigationSchedule = [
   { 
-    date: 'Today, Feb 26', 
-    zones: ['North Field', 'West Field'],
-    time: '6:00 AM - 8:30 AM',
+    date: 'Today, May 21', 
+    zones: ['Pit Line A', 'Pit Line B'],
+    time: '5:30 AM - 7:00 AM',
     amount: '25mm',
-    duration: '2.5 hours',
-    status: 'scheduled',
-    reason: 'Critical moisture levels'
-  },
-  {
-    date: 'Tomorrow, Feb 27',
-    zones: ['South Field'],
-    time: '6:00 AM - 7:30 AM',
-    amount: '15mm',
     duration: '1.5 hours',
     status: 'scheduled',
-    reason: 'Preventive watering'
+    reason: 'Root-zone moisture below 30%'
   },
   {
-    date: 'Feb 28',
-    zones: ['All Zones'],
+    date: 'Tomorrow, May 22',
+    zones: ['Pit Line C'],
+    time: '5:30 AM - 6:30 AM',
+    amount: '15mm',
+    duration: '1 hour',
+    status: 'scheduled',
+    reason: 'Preventative release before heat spike'
+  },
+  {
+    date: 'May 23',
+    zones: ['All Lines'],
     time: 'Skipped',
     amount: '0mm',
     duration: '0 hours',
     status: 'cancelled',
-    reason: 'Rain forecasted (8mm)'
+    reason: 'Rain pulse expected (6mm)'
   },
   {
-    date: 'Mar 1',
-    zones: ['North Field', 'West Field'],
-    time: '6:00 AM - 8:00 AM',
+    date: 'May 24',
+    zones: ['Pit Line A', 'Pit Line D'],
+    time: '5:30 AM - 6:45 AM',
     amount: '20mm',
-    duration: '2 hours',
+    duration: '1.25 hours',
     status: 'projected',
     reason: 'Post-rain assessment'
   },
@@ -113,10 +113,10 @@ export default function IrrigationPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-[22px] font-semibold text-[var(--color-soil)] tracking-tight">
-              Irrigation Management
+              Cistern & Irrigation
             </h1>
             <p className="text-[13px] text-[var(--color-stone)]">
-              Smart water scheduling & soil moisture monitoring
+              Zai pit water release scheduling & moisture monitoring
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -142,23 +142,23 @@ export default function IrrigationPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InsightCard
             priority="critical"
-            title="Critical Moisture - North Field"
-            description="Soil moisture at 42%, immediate irrigation required"
+            title="Critical Moisture - Pit Line A"
+            description="Root-zone moisture at 33%, release cistern water"
             daysUntil={0}
-            impactPercent={-15}
-            confidence={95}
+            impactPercent={-18}
+            confidence={92}
             action={{
-              label: 'Start Irrigation',
+              label: 'Release Water',
               onClick: () => console.log('Start irrigation'),
             }}
           />
           <InsightCard
             priority="opportunity"
-            title="Rain Forecast - Skip Tomorrow"
-            description="8mm rain expected Feb 28, automatic schedule adjustment"
+            title="Rain Forecast - Pause Release"
+            description="6mm rain expected, auto-adjusting release window"
             daysUntil={2}
-            impactPercent={12}
-            confidence={88}
+            impactPercent={10}
+            confidence={86}
           />
         </div>
 
@@ -170,24 +170,24 @@ export default function IrrigationPage() {
             <div className="space-y-4">
               <StatusCard
                 icon={Droplets}
-                label="Avg Moisture"
-                value="55%"
+                label="Avg Root-Zone"
+                value="48%"
                 target="65%"
                 status="below"
                 color="#3B82F6"
               />
               <StatusCard
                 icon={Timer}
-                label="Next Irrigation"
-                value="2.5 hrs"
-                target="Today 6:00 AM"
+                label="Next Release"
+                value="1.5 hrs"
+                target="Today 5:30 AM"
                 status="scheduled"
                 color="#059669"
               />
               <StatusCard
                 icon={TrendingDown}
                 label="Water Saved"
-                value="840L"
+                value="620L"
                 target="This week"
                 status="positive"
                 color="#FBBF24"
@@ -195,8 +195,8 @@ export default function IrrigationPage() {
               <StatusCard
                 icon={DollarSign}
                 label="Cost Savings"
-                value="$24"
-                target="vs traditional"
+                value="₦12,400"
+                target="vs manual pumping"
                 status="positive"
                 color="#059669"
               />
@@ -209,25 +209,25 @@ export default function IrrigationPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Soil Moisture Trends</h3>
-                    <p className="text-[12px] text-[var(--color-stone)]">7-day moisture levels by zone</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Root-Zone Moisture Trends</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">7-day moisture levels by pit line</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/[0.03]">
                       <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                      <span className="text-[11px] text-[var(--color-stone)]">North</span>
+                      <span className="text-[11px] text-[var(--color-stone)]">Line A</span>
                     </div>
                     <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/[0.03]">
                       <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-emerald)]" />
-                      <span className="text-[11px] text-[var(--color-stone)]">South</span>
+                      <span className="text-[11px] text-[var(--color-stone)]">Line B</span>
                     </div>
                     <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/[0.03]">
                       <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-                      <span className="text-[11px] text-[var(--color-stone)]">East</span>
+                      <span className="text-[11px] text-[var(--color-stone)]">Line C</span>
                     </div>
                     <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/[0.03]">
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                      <span className="text-[11px] text-[var(--color-stone)]">West</span>
+                      <span className="text-[11px] text-[var(--color-stone)]">Line D</span>
                     </div>
                   </div>
                 </div>
@@ -302,7 +302,7 @@ export default function IrrigationPage() {
                 <div className="mt-3 flex items-center gap-1.5 p-2 rounded-lg bg-[var(--color-emerald)]/10">
                   <Activity className="w-3.5 h-3.5 text-[var(--color-emerald)]" />
                   <p className="text-[11px] text-[var(--color-stone)]">
-                    Green zone (55-75%) indicates optimal moisture range
+                    Green zone (55-75%) indicates optimal root-zone range
                   </p>
                 </div>
               </CardContent>
@@ -315,12 +315,12 @@ export default function IrrigationPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Zone Control</h3>
-                    <p className="text-[12px] text-[var(--color-stone)]">Real-time monitoring & manual control</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Pit Line Control</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Real-time monitoring & manual release</p>
                   </div>
                   <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 text-white text-[12px] font-medium hover:bg-blue-600 transition-colors">
                     <Play className="w-3.5 h-3.5" />
-                    Start All Zones
+                    Start All Lines
                   </button>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
@@ -450,8 +450,8 @@ export default function IrrigationPage() {
             <Card variant="bento">
               <CardContent className="p-5">
                 <div className="mb-4">
-                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Weather Impact</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">Environmental factors affecting irrigation</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Weather Impact</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Environmental factors affecting release</p>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   <WeatherFactorCard
@@ -478,7 +478,7 @@ export default function IrrigationPage() {
                 </div>
                 <div className="mt-4 p-3 rounded-lg bg-blue-500/10">
                   <p className="text-[12px] text-[var(--color-stone)]">
-                    <span className="font-semibold text-blue-600">Smart adjustment:</span> Schedule modified to account for upcoming rainfall. Saving 850L of water.
+                    <span className="font-semibold text-blue-600">Smart adjustment:</span> Release paused for rain pulse. Saving 620L of water.
                   </p>
                 </div>
               </CardContent>
@@ -490,29 +490,29 @@ export default function IrrigationPage() {
             <Card variant="bento">
               <CardContent className="p-5">
                 <div className="mb-4">
-                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">System Status</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">Equipment health & performance</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">System Status</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Equipment health & performance</p>
                 </div>
                 <div className="space-y-3">
                   <SystemStatusItem
-                    label="Water Pump 1"
+                    label="Cistern Pump A"
                     status="active"
-                    detail="Running - 2,400 L/hr"
+                    detail="Running - 1,800 L/hr"
                   />
                   <SystemStatusItem
-                    label="Water Pump 2"
+                    label="Cistern Pump B"
                     status="idle"
                     detail="Standby mode"
                   />
                   <SystemStatusItem
-                    label="Soil Sensors"
+                    label="Demeter Sensors"
                     status="active"
-                    detail="4/4 online, last update 2 min ago"
+                    detail="3/3 online, last update 2 min ago"
                   />
                   <SystemStatusItem
                     label="Valve Controller"
                     status="active"
-                    detail="All zones operational"
+                    detail="All pit lines operational"
                   />
                   <SystemStatusItem
                     label="Weather Station"

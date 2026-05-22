@@ -15,6 +15,10 @@ export function FarmDigitalTwin({
   healthPercentage = 87,
   className = 'w-full h-full' 
 }: FarmDigitalTwinProps) {
+  const rows = 6;
+  const plantsPerRow = 8;
+  const spacing = 1.2;
+
   // Convert health percentage to stress values
   // Higher health = lower stress
   const baseStress = (100 - healthPercentage) / 100;
@@ -26,10 +30,11 @@ export function FarmDigitalTwin({
   return (
     <FarmScene className={className}>
       <Ground size={18} />
+      <ZaiPitField rows={rows} plantsPerRow={plantsPerRow} spacing={spacing} />
       <CropField
-        rows={8}
-        plantsPerRow={10}
-        spacing={0.75}
+        rows={rows}
+        plantsPerRow={plantsPerRow}
+        spacing={spacing}
         growthStage={growthStage}
         stressMap={stressMap}
       />
@@ -38,7 +43,8 @@ export function FarmDigitalTwin({
       <WaterTank position={[8, 0, -6]} />
       <Shed position={[-8, 0, 6]} />
       <SensorPost position={[0, 0, 5]} />
-      <SensorPost position={[3, 0, -4]} />
+      <SensorPost position={[3.5, 0, -4.5]} />
+      <SensorPost position={[-4, 0, -3.5]} />
     </FarmScene>
   );
 }
@@ -79,6 +85,59 @@ function generateStressMap(count: number, baseStress: number): number[] {
   }
   
   return map;
+}
+
+interface ZaiPitFieldProps {
+  rows: number;
+  plantsPerRow: number;
+  spacing: number;
+}
+
+function ZaiPitField({ rows, plantsPerRow, spacing }: ZaiPitFieldProps) {
+  const totalWidth = (plantsPerRow - 1) * spacing;
+  const totalDepth = (rows - 1) * spacing;
+  const offsetX = -totalWidth / 2;
+  const offsetZ = -totalDepth / 2;
+
+  return (
+    <group>
+      {Array.from({ length: rows * plantsPerRow }).map((_, index) => {
+        const row = Math.floor(index / plantsPerRow);
+        const col = index % plantsPerRow;
+        const x = offsetX + col * spacing;
+        const z = offsetZ + row * spacing;
+
+        return <ZaiPit key={index} position={[x, 0, z]} />;
+      })}
+    </group>
+  );
+}
+
+function ZaiPit({ position }: { position: [number, number, number] }) {
+  return (
+    <group position={position}>
+      {/* Berm ring */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow>
+        <torusGeometry args={[0.38, 0.08, 10, 28]} />
+        <meshStandardMaterial color="#9B7656" roughness={0.9} />
+      </mesh>
+      {/* Pit depression */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.06, 0]} receiveShadow>
+        <cylinderGeometry args={[0.24, 0.34, 0.12, 24]} />
+        <meshStandardMaterial color="#4B3226" roughness={0.95} />
+      </mesh>
+      {/* Mulch ring */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.015, 0]}>
+        <ringGeometry args={[0.18, 0.28, 20]} />
+        <meshStandardMaterial color="#A37A4E" roughness={0.85} opacity={0.7} transparent />
+      </mesh>
+      {/* Moisture glow */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.03, 0]}>
+        <circleGeometry args={[0.2, 18]} />
+        <meshStandardMaterial color="#2F5E52" roughness={0.6} metalness={0.1} opacity={0.45} transparent />
+      </mesh>
+    </group>
+  );
 }
 
 // Farm decoration components

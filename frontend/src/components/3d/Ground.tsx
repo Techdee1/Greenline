@@ -21,9 +21,9 @@ export function Ground({ size = 20 }: GroundProps) {
       >
         <planeGeometry args={[size, size, 32, 32]} />
         <meshStandardMaterial
-          color="#5D4037"
-          roughness={0.9}
-          metalness={0.1}
+          color="#6A4A3C"
+          roughness={0.95}
+          metalness={0.05}
         />
       </mesh>
 
@@ -35,9 +35,9 @@ export function Ground({ size = 20 }: GroundProps) {
       >
         <planeGeometry args={[size * 0.8, size * 0.8, 1, 1]} />
         <meshStandardMaterial
-          color="#4A3728"
-          roughness={0.95}
-          metalness={0.05}
+          color="#5A3F2F"
+          roughness={0.98}
+          metalness={0.02}
         />
       </mesh>
 
@@ -49,9 +49,9 @@ export function Ground({ size = 20 }: GroundProps) {
       >
         <ringGeometry args={[size * 0.45, size * 0.55, 32]} />
         <meshStandardMaterial
-          color="#4A7C59"
-          roughness={0.8}
-          metalness={0.1}
+          color="#6B7A54"
+          roughness={0.85}
+          metalness={0.05}
         />
       </mesh>
 

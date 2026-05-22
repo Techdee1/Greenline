@@ -14,10 +14,10 @@ export default function SettingsPage() {
           </div>
           <div>
             <h1 className="font-display text-3xl font-bold text-[var(--color-soil)]">
-              Settings
+              Green Line Settings
             </h1>
             <p className="text-[var(--color-bark)] mt-1">
-              Configure your preferences and account
+              Configure pilot preferences and system access
             </p>
           </div>
         </div>
@@ -31,11 +31,11 @@ export default function SettingsPage() {
             <div className="text-center py-12">
               <Settings className="w-16 h-16 text-[var(--color-terracotta)] mx-auto mb-4" />
               <h3 className="font-display text-xl font-semibold text-[var(--color-soil)] mb-2">
-                Settings & Preferences
+                Pilot Settings & Preferences
               </h3>
               <p className="text-[var(--color-bark)] max-w-md mx-auto">
-                This page will provide account settings, notification preferences, 
-                farm configuration, sensor management, and system customization options.
+                This page will provide pilot access, notification preferences, 
+                farm unit configuration, sensor management, and system controls.
               </p>
             </div>
           </CardContent>

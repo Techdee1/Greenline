@@ -162,7 +162,7 @@ export default function DashboardPage() {
                       {show3DView ? 'Farm 3D View' : 'Field Twin'}
                     </h3>
                     <p className="text-[11px] text-[var(--color-stone)]">
-                      {show3DView ? 'Interactive farm visualization' : 'Real-time zai pit visualization'}
+                      {show3DView ? 'Interactive farm visualization' : 'Zai pit root-zone telemetry'}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -318,7 +318,7 @@ export default function DashboardPage() {
           <div className="col-span-12 sm:col-span-6 lg:col-span-4">
             <Card variant="bento">
               <CardContent className="p-5">
-                <h3 className="text-[14px] font-semibold text-[var(--color-soil)] mb-4">Risk Breakdown</h3>
+                <h3 className="text-[14px] font-semibold text-[var(--color-soil)] mb-4">Stress Breakdown</h3>
                 {riskData && (
                   <RiskBreakdown
                     items={riskData.breakdown.map(b => ({
@@ -329,6 +329,30 @@ export default function DashboardPage() {
                     size="sm"
                   />
                 )}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+            <Card variant="bento">
+              <CardContent className="p-5">
+                <h3 className="text-[14px] font-semibold text-[var(--color-soil)] mb-3">Why This Alert?</h3>
+                <div className="space-y-3">
+                  <div className="p-3 rounded-xl bg-white/70 border border-black/[0.04]">
+                    <p className="text-[12px] font-medium text-[var(--color-soil)]">Signal Stack</p>
+                    <ul className="mt-2 text-[11px] text-[var(--color-stone)] space-y-1">
+                      <li>0mm rainfall in 12 days</li>
+                      <li>Root-zone moisture down 9% week-over-week</li>
+                      <li>Heat index above 35°C for 4 days ahead</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/70 border border-black/[0.04]">
+                    <p className="text-[12px] font-medium text-[var(--color-soil)]">Model Readout</p>
+                    <p className="text-[11px] text-[var(--color-stone)] mt-1">
+                      LSTM + Random Forest flags stress at Day 3 with 88% confidence.
+                    </p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>

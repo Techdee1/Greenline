@@ -22,31 +22,31 @@ interface SimulationScenario {
 const scenarios: SimulationScenario[] = [
   {
     id: 'IRRIGATION',
-    label: 'Add Irrigation',
-    description: 'Apply 25mm water irrigation',
+    label: 'Release Cistern Water',
+    description: 'Micro-dose 25mm into pits',
     icon: Droplets,
-    impact: { yield: 5, risk: -20, water: 2500 },
+    impact: { yield: 18, risk: -28, water: 2500 },
   },
   {
     id: 'HEAVY_RAIN',
-    label: 'Heavy Rainfall',
-    description: 'Simulate 50mm rainfall event',
+    label: 'Rain Pulse',
+    description: 'Simulate 40mm rainfall event',
     icon: CloudRain,
-    impact: { yield: -3, risk: 15, water: 5000 },
+    impact: { yield: 4, risk: -10, water: 4000 },
   },
   {
     id: 'HEAT_WAVE',
     label: 'Heat Wave',
-    description: '5 days of +5°C above normal',
+    description: '4 days of +5°C above normal',
     icon: Sun,
-    impact: { yield: -12, risk: 35, water: -1500 },
+    impact: { yield: -9, risk: 26, water: -1500 },
   },
   {
     id: 'FERTILIZER',
-    label: 'Apply Fertilizer',
-    description: 'NPK application at recommended rate',
+    label: 'Zai Pit Mulch',
+    description: 'Organic cover + compost',
     icon: Leaf,
-    impact: { yield: 8, risk: -5, water: 0 },
+    impact: { yield: 10, risk: -8, water: 0 },
   },
 ];
 
@@ -79,7 +79,7 @@ export function SimulationPanel({ onRunSimulation, isLoading = false }: Simulati
       <Card>
         <CardHeader>
           <CardTitle className="text-base">What-If Simulator</CardTitle>
-          <CardDescription>Test different scenarios to see their impact</CardDescription>
+          <CardDescription>Test actions with real farm signals</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
@@ -215,13 +215,13 @@ function ImpactRow({ label, value, suffix, inverse = false }: ImpactRowProps) {
 function getRecommendation(scenario: SimulationScenario): string {
   switch (scenario.id) {
     case 'IRRIGATION':
-      return 'Schedule irrigation for early morning to minimize evaporation.';
+      return 'Release cistern water before sunrise to minimize evaporation.';
     case 'HEAVY_RAIN':
-      return 'Ensure drainage channels are clear. Consider fungicide application.';
+      return 'Keep zai pits open for capture. Clear overflow channels.';
     case 'HEAT_WAVE':
-      return 'Increase irrigation frequency. Apply mulch to conserve moisture.';
+      return 'Deploy shade cloth and stagger releases to protect roots.';
     case 'FERTILIZER':
-      return 'Apply fertilizer before predicted rainfall for better absorption.';
+      return 'Add mulch after watering to lock moisture in place.';
     default:
       return 'Monitor conditions closely.';
   }

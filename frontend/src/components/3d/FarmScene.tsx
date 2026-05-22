@@ -15,13 +15,13 @@ export function FarmScene({ children, className }: FarmSceneProps) {
       <Canvas shadows dpr={[1, 2]}>
         <Suspense fallback={<LoadingFallback />}>
           {/* Camera */}
-          <PerspectiveCamera makeDefault position={[15, 12, 15]} fov={50} />
+          <PerspectiveCamera makeDefault position={[14, 11, 14]} fov={48} />
           
           {/* Lighting */}
-          <ambientLight intensity={0.4} />
+          <ambientLight intensity={0.25} />
           <directionalLight
             position={[10, 15, 10]}
-            intensity={1.2}
+            intensity={1.35}
             castShadow
             shadow-mapSize={[2048, 2048]}
             shadow-camera-far={50}
@@ -30,20 +30,28 @@ export function FarmScene({ children, className }: FarmSceneProps) {
             shadow-camera-top={20}
             shadow-camera-bottom={-20}
           />
+          <spotLight
+            position={[-12, 18, -8]}
+            intensity={0.8}
+            angle={0.35}
+            penumbra={0.7}
+            color="#F59E0B"
+            castShadow
+          />
           <hemisphereLight
             color="#87CEEB"
             groundColor="#8B4513"
-            intensity={0.3}
+            intensity={0.25}
           />
 
           {/* Environment */}
           <Sky
             distance={450000}
-            sunPosition={[100, 20, 100]}
-            inclination={0.6}
-            azimuth={0.25}
+            sunPosition={[120, 25, 80]}
+            inclination={0.5}
+            azimuth={0.18}
           />
-          <fog attach="fog" args={['#E8DFD0', 30, 80]} />
+          <fog attach="fog" args={['#D9C7B0', 25, 70]} />
           
           {/* Controls */}
           <OrbitControls

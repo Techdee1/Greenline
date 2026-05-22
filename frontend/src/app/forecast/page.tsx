@@ -13,36 +13,35 @@ import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, Cartesia
 
 // Extended 30-day forecast data
 const extendedForecast = [
-  { date: 'Feb 27', temp: 28, rain: 0, moisture: 42, gdd: 12, confidence: 95 },
-  { date: 'Feb 28', temp: 29, rain: 0, moisture: 40, gdd: 13, confidence: 95 },
-  { date: 'Mar 1', temp: 31, rain: 0, moisture: 38, gdd: 15, confidence: 92 },
-  { date: 'Mar 2', temp: 32, rain: 0, moisture: 36, gdd: 16, confidence: 92 },
-  { date: 'Mar 3', temp: 30, rain: 2, moisture: 45, gdd: 14, confidence: 90 },
-  { date: 'Mar 4', temp: 28, rain: 8, moisture: 58, gdd: 12, confidence: 88 },
-  { date: 'Mar 5', temp: 27, rain: 12, moisture: 65, gdd: 11, confidence: 88 },
-  { date: 'Mar 6', temp: 26, rain: 5, moisture: 62, gdd: 10, confidence: 85 },
-  { date: 'Mar 7', temp: 28, rain: 0, moisture: 58, gdd: 12, confidence: 82 },
-  { date: 'Mar 8', temp: 29, rain: 0, moisture: 54, gdd: 13, confidence: 82 },
-  { date: 'Mar 9', temp: 30, rain: 0, moisture: 50, gdd: 14, confidence: 80 },
-  { date: 'Mar 10', temp: 31, rain: 0, moisture: 46, gdd: 15, confidence: 78 },
-  { date: 'Mar 11', temp: 32, rain: 0, moisture: 42, gdd: 16, confidence: 78 },
-  { date: 'Mar 12', temp: 33, rain: 0, moisture: 38, gdd: 17, confidence: 75 },
-  { date: 'Mar 13', temp: 31, rain: 3, moisture: 48, gdd: 15, confidence: 72 },
-  { date: 'Mar 14', temp: 29, rain: 6, moisture: 56, gdd: 13, confidence: 70 },
-  { date: 'Mar 15', temp: 28, rain: 4, moisture: 60, gdd: 12, confidence: 68 },
-  { date: 'Mar 16', temp: 29, rain: 0, moisture: 56, gdd: 13, confidence: 65 },
-  { date: 'Mar 17', temp: 30, rain: 0, moisture: 52, gdd: 14, confidence: 65 },
-  { date: 'Mar 18', temp: 31, rain: 0, moisture: 48, gdd: 15, confidence: 62 },
-  { date: 'Mar 19', temp: 32, rain: 0, moisture: 44, gdd: 16, confidence: 60 },
-  { date: 'Mar 20', temp: 30, rain: 8, moisture: 58, gdd: 14, confidence: 58 },
-  { date: 'Mar 21', temp: 28, rain: 10, moisture: 68, gdd: 12, confidence: 55 },
-  { date: 'Mar 22', temp: 27, rain: 5, moisture: 70, gdd: 11, confidence: 55 },
-  { date: 'Mar 23', temp: 28, rain: 0, moisture: 66, gdd: 12, confidence: 52 },
-  { date: 'Mar 24', temp: 29, rain: 0, moisture: 62, gdd: 13, confidence: 50 },
-  { date: 'Mar 25', temp: 30, rain: 0, moisture: 58, gdd: 14, confidence: 50 },
-  { date: 'Mar 26', temp: 31, rain: 0, moisture: 54, gdd: 15, confidence: 48 },
-  { date: 'Mar 27', temp: 32, rain: 0, moisture: 50, gdd: 16, confidence: 45 },
-  { date: 'Mar 28', temp: 30, rain: 4, moisture: 58, gdd: 14, confidence: 45 },
+  { date: 'May 22', temp: 34, rain: 0, moisture: 36, gdd: 16, confidence: 95 },
+  { date: 'May 23', temp: 35, rain: 0, moisture: 34, gdd: 17, confidence: 95 },
+  { date: 'May 24', temp: 36, rain: 0, moisture: 32, gdd: 18, confidence: 92 },
+  { date: 'May 25', temp: 36, rain: 0, moisture: 30, gdd: 18, confidence: 92 },
+  { date: 'May 26', temp: 35, rain: 1, moisture: 34, gdd: 17, confidence: 90 },
+  { date: 'May 27', temp: 33, rain: 6, moisture: 48, gdd: 15, confidence: 88 },
+  { date: 'May 28', temp: 32, rain: 10, moisture: 56, gdd: 14, confidence: 88 },
+  { date: 'May 29', temp: 31, rain: 5, moisture: 52, gdd: 13, confidence: 85 },
+  { date: 'May 30', temp: 33, rain: 0, moisture: 48, gdd: 15, confidence: 82 },
+  { date: 'May 31', temp: 34, rain: 0, moisture: 44, gdd: 16, confidence: 82 },
+  { date: 'Jun 1', temp: 35, rain: 0, moisture: 40, gdd: 17, confidence: 80 },
+  { date: 'Jun 2', temp: 36, rain: 0, moisture: 36, gdd: 18, confidence: 78 },
+  { date: 'Jun 3', temp: 36, rain: 0, moisture: 34, gdd: 18, confidence: 78 },
+  { date: 'Jun 4', temp: 35, rain: 3, moisture: 42, gdd: 17, confidence: 72 },
+  { date: 'Jun 5', temp: 33, rain: 6, moisture: 52, gdd: 15, confidence: 70 },
+  { date: 'Jun 6', temp: 32, rain: 4, moisture: 56, gdd: 14, confidence: 68 },
+  { date: 'Jun 7', temp: 33, rain: 0, moisture: 52, gdd: 15, confidence: 65 },
+  { date: 'Jun 8', temp: 34, rain: 0, moisture: 48, gdd: 16, confidence: 65 },
+  { date: 'Jun 9', temp: 35, rain: 0, moisture: 44, gdd: 17, confidence: 62 },
+  { date: 'Jun 10', temp: 36, rain: 0, moisture: 40, gdd: 18, confidence: 60 },
+  { date: 'Jun 11', temp: 34, rain: 8, moisture: 52, gdd: 16, confidence: 58 },
+  { date: 'Jun 12', temp: 32, rain: 12, moisture: 64, gdd: 14, confidence: 55 },
+  { date: 'Jun 13', temp: 31, rain: 6, moisture: 68, gdd: 13, confidence: 55 },
+  { date: 'Jun 14', temp: 32, rain: 0, moisture: 64, gdd: 14, confidence: 52 },
+  { date: 'Jun 15', temp: 33, rain: 0, moisture: 60, gdd: 15, confidence: 50 },
+  { date: 'Jun 16', temp: 34, rain: 0, moisture: 56, gdd: 16, confidence: 50 },
+  { date: 'Jun 17', temp: 35, rain: 0, moisture: 52, gdd: 17, confidence: 48 },
+  { date: 'Jun 18', temp: 36, rain: 0, moisture: 48, gdd: 18, confidence: 45 },
+  { date: 'Jun 19', temp: 34, rain: 4, moisture: 56, gdd: 16, confidence: 45 },
 ];
 
 // Yield prediction data (kg/ha over season)
@@ -61,12 +60,12 @@ const yieldPredictionData = [
 
 // Market price forecast
 const priceForecastData = [
-  { month: 'Feb', price: 2.8, trend: 'stable' },
-  { month: 'Mar', price: 2.9, trend: 'up' },
-  { month: 'Apr', price: 3.2, trend: 'up' },
-  { month: 'May', price: 3.5, trend: 'up' },
-  { month: 'Jun', price: 3.3, trend: 'down' },
-  { month: 'Jul', price: 3.0, trend: 'down' },
+  { month: 'May', price: 320000, trend: 'stable' },
+  { month: 'Jun', price: 340000, trend: 'up' },
+  { month: 'Jul', price: 360000, trend: 'up' },
+  { month: 'Aug', price: 355000, trend: 'stable' },
+  { month: 'Sep', price: 330000, trend: 'down' },
+  { month: 'Oct', price: 315000, trend: 'down' },
 ];
 
 // Growing degree days accumulation
@@ -112,10 +111,10 @@ export default function ForecastingPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-[22px] font-semibold text-[var(--color-soil)] tracking-tight">
-              Forecasting & Predictions
+              Forecasting & Drought Outlook
             </h1>
             <p className="text-[13px] text-[var(--color-stone)]">
-              Extended forecasts, yield predictions & market trends
+              Root-zone stress, yield protection, and market timing
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -139,27 +138,27 @@ export default function ForecastingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <InsightCard
             priority="opportunity"
-            title="Optimal Planting Window"
-            description="Rainfall expected Mar 4-7, ideal for next planting cycle"
+            title="Rain Pulse Window"
+            description="Localized rain expected in 5-7 days, ideal for pit recharge"
             daysUntil={6}
-            impactPercent={15}
-            confidence={88}
+            impactPercent={12}
+            confidence={86}
           />
           <InsightCard
             priority="warning"
             title="Heat Wave Alert"
-            description="Extended high temperatures (32-33°C) predicted Mar 11-14"
-            daysUntil={13}
-            impactPercent={-8}
-            confidence={75}
+            description="36°C+ forecast for 4 days; heat stress risk rising"
+            daysUntil={10}
+            impactPercent={-9}
+            confidence={80}
           />
           <InsightCard
             priority="healthy"
-            title="Favorable Conditions"
-            description="Yield projections remain on track for 4,600 kg/ha target"
+            title="Yield Protection On Track"
+            description="Projected yield stabilizes with early cistern release"
             daysUntil={0}
-            impactPercent={8}
-            confidence={82}
+            impactPercent={10}
+            confidence={84}
           />
         </div>
 
@@ -171,29 +170,29 @@ export default function ForecastingPage() {
             <div className="space-y-4">
               <WeatherMetricCard
                 icon={CloudRain}
-                label="Total Rainfall"
-                value="67mm"
+                label="Rainfall Outlook"
+                value="44mm"
                 subtext="Next 30 days"
                 trend="up"
-                trendValue="+12mm vs avg"
+                trendValue="+6mm vs avg"
                 color="#3B82F6"
               />
               <WeatherMetricCard
                 icon={Thermometer}
-                label="Avg Temperature"
-                value="29.8°C"
+                label="Avg Heat Index"
+                value="34.2°C"
                 subtext="Next 14 days"
                 trend="up"
-                trendValue="+1.2°C"
+                trendValue="+2.4°C"
                 color="#F59E0B"
               />
               <WeatherMetricCard
                 icon={Sun}
-                label="GDD Accumulated"
-                value="885"
-                subtext="On track"
+                label="Stress Window"
+                value="Day 3"
+                subtext="Peak risk"
                 trend="stable"
-                trendValue="+15 vs optimal"
+                trendValue="Mitigation ready"
                 color="#FBBF24"
               />
             </div>
@@ -205,9 +204,9 @@ export default function ForecastingPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Extended Weather Forecast</h3>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Extended Climate Outlook</h3>
                     <p className="text-[12px] text-[var(--color-stone)]">
-                      Temperature, rainfall & soil moisture predictions
+                      Heat, rainfall, and root-zone moisture forecast
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -294,7 +293,7 @@ export default function ForecastingPage() {
                     <span>Confidence decreases beyond 14 days</span>
                   </div>
                   <div className="text-[var(--color-stone)]">
-                    Updated: Feb 26, 10:42 AM
+                    Updated: May 21, 10:42 AM
                   </div>
                 </div>
               </CardContent>
@@ -314,7 +313,7 @@ export default function ForecastingPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="text-right">
-                      <p className="text-[20px] font-semibold text-[var(--color-emerald)]">4,600 kg/ha</p>
+                      <p className="text-[20px] font-semibold text-[var(--color-emerald)]">3.8 t/ha</p>
                       <p className="text-[11px] text-[var(--color-stone)]">Projected yield</p>
                     </div>
                   </div>
@@ -395,8 +394,8 @@ export default function ForecastingPage() {
             <Card variant="bento" className="h-full">
               <CardContent className="p-5">
                 <div className="mb-4">
-                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Growing Degree Days</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">Heat unit accumulation</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Heat Load Index</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Thermal stress accumulation</p>
                 </div>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
@@ -464,11 +463,11 @@ export default function ForecastingPage() {
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Market Price Forecast</h3>
-                    <p className="text-[12px] text-[var(--color-stone)]">Projected commodity prices ($/kg)</p>
+                    <p className="text-[12px] text-[var(--color-stone)]">Projected maize prices (₦/tonne)</p>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-[var(--color-emerald)]/10">
                     <TrendingUp className="w-3.5 h-3.5 text-[var(--color-emerald)]" />
-                    <span className="text-[12px] font-medium text-[var(--color-emerald)]">+25% trend</span>
+                    <span className="text-[12px] font-medium text-[var(--color-emerald)]">+12% trend</span>
                   </div>
                 </div>
                 <div className="h-56">
@@ -506,7 +505,7 @@ export default function ForecastingPage() {
                 </div>
                 <div className="mt-3 p-3 rounded-lg bg-black/[0.02]">
                   <p className="text-[12px] text-[var(--color-stone)]">
-                    <span className="font-semibold text-[var(--color-soil)]">April-May</span> shows optimal pricing window.
+                    <span className="font-semibold text-[var(--color-soil)]">July-Aug</span> shows the strongest pricing window.
                     Consider strategic harvest timing for maximum revenue.
                   </p>
                 </div>
@@ -519,37 +518,37 @@ export default function ForecastingPage() {
             <Card variant="bento">
               <CardContent className="p-5">
                 <div className="mb-4">
-                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Season Planning</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">Key milestones & recommendations</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Season Planning</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Key milestones & response timing</p>
                 </div>
                 <div className="space-y-3">
                   <SeasonMilestone
                     icon={Sprout}
-                    title="Next Planting Window"
-                    date="Mar 4-7"
+                    title="Recharge Window"
+                    date="May 27-29"
                     status="upcoming"
-                    description="Rainfall expected, optimal soil moisture for germination"
+                    description="Rain pulse expected, recharge pits for flowering stage"
                   />
                   <SeasonMilestone
                     icon={Droplets}
-                    title="Critical Irrigation Period"
-                    date="Mar 11-14"
+                    title="Critical Release Window"
+                    date="Jun 1-4"
                     status="attention"
-                    description="High temperatures, ensure adequate water supply"
+                    description="Heat wave expected, prioritize cistern release"
                   />
                   <SeasonMilestone
                     icon={Target}
                     title="Mid-Season Assessment"
-                    date="Mar 20"
+                    date="Jun 10"
                     status="scheduled"
-                    description="Evaluate crop health and adjust fertilization plan"
+                    description="Evaluate canopy health and adjust pit mulch"
                   />
                   <SeasonMilestone
                     icon={Calendar}
                     title="Projected Harvest"
-                    date="Apr 28-May 5"
+                    date="Jul 20-Aug 2"
                     status="projected"
-                    description="Optimal timing based on GDD accumulation and market prices"
+                    description="Optimal timing based on heat load and market prices"
                   />
                 </div>
               </CardContent>
@@ -707,7 +706,7 @@ function PriceTooltip({ active, payload, label }: any) {
       <div className="flex items-center justify-between">
         <span className="text-[11px] text-[var(--color-stone)]">Price</span>
         <span className="text-[12px] font-semibold text-[var(--color-emerald)]">
-          ${payload[0].value}/kg
+          ₦{payload[0].value}/tonne
         </span>
       </div>
     </div>

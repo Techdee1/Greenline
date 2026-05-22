@@ -19,31 +19,31 @@ import { BarChart, Bar, LineChart, Line, AreaChart, Area, PieChart as RechartsPi
 const reportTypes = [
   {
     id: 'weekly',
-    name: 'Weekly Summary',
+    name: 'Pilot Weekly Summary',
     icon: Calendar,
-    description: 'Last 7 days overview',
+    description: 'Last 7 days of pilot signals',
     generationTime: '~2 min',
     color: '#3B82F6',
   },
   {
     id: 'monthly',
-    name: 'Monthly Report',
+    name: 'LGA Monthly Brief',
     icon: FileBarChart,
-    description: 'Comprehensive monthly analysis',
+    description: 'Regional trends and performance',
     generationTime: '~5 min',
     color: '#059669',
   },
   {
     id: 'seasonal',
-    name: 'Seasonal Analysis',
+    name: 'Seasonal Resilience',
     icon: FilePieChart,
-    description: 'Full season performance',
+    description: 'Water + yield resilience impact',
     generationTime: '~8 min',
     color: '#F59E0B',
   },
   {
     id: 'custom',
-    name: 'Custom Report',
+    name: 'Custom Pilot Report',
     icon: FileSpreadsheet,
     description: 'Select date range & metrics',
     generationTime: 'Variable',
@@ -53,94 +53,94 @@ const reportTypes = [
 
 // Performance metrics comparison
 const performanceData = [
-  { metric: 'Yield', current: 4200, target: 4000, previous: 3800, unit: 'kg/ha' },
-  { metric: 'Water Efficiency', current: 88, target: 85, previous: 82, unit: '%' },
-  { metric: 'Cost per Hectare', current: 1250, target: 1400, previous: 1450, unit: '$' },
-  { metric: 'Risk Score', current: 35, target: 40, previous: 48, unit: '%' },
-  { metric: 'Irrigation Events', current: 18, target: 20, previous: 22, unit: 'times' },
+  { metric: 'Yield', current: 3800, target: 3600, previous: 3200, unit: 'kg/ha' },
+  { metric: 'Water Efficiency', current: 86, target: 82, previous: 78, unit: '%' },
+  { metric: 'Cost per Hectare', current: 43450, target: 50000, previous: 52000, unit: '₦' },
+  { metric: 'Stress Index', current: 46, target: 55, previous: 62, unit: '%' },
+  { metric: 'Cistern Releases', current: 9, target: 12, previous: 14, unit: 'times' },
 ];
 
 // Monthly trend data
 const monthlyTrendData = [
-  { month: 'Sep', yield: 3200, cost: 1500, revenue: 8960 },
-  { month: 'Oct', yield: 3600, cost: 1450, revenue: 10080 },
-  { month: 'Nov', yield: 3800, cost: 1420, revenue: 10640 },
-  { month: 'Dec', yield: 4000, cost: 1380, revenue: 11200 },
-  { month: 'Jan', yield: 4100, cost: 1320, revenue: 11480 },
-  { month: 'Feb', yield: 4200, cost: 1250, revenue: 11760 },
+  { month: 'Dec', yield: 2800, cost: 58000, revenue: 760000 },
+  { month: 'Jan', yield: 3200, cost: 54000, revenue: 896000 },
+  { month: 'Feb', yield: 3500, cost: 50000, revenue: 980000 },
+  { month: 'Mar', yield: 3700, cost: 46500, revenue: 1036000 },
+  { month: 'Apr', yield: 3800, cost: 43450, revenue: 1064000 },
+  { month: 'May', yield: 3900, cost: 43000, revenue: 1092000 },
 ];
 
 // Resource distribution
 const resourceDistribution = [
-  { name: 'Irrigation', value: 35, color: '#3B82F6' },
-  { name: 'Fertilizer', value: 28, color: '#059669' },
-  { name: 'Labor', value: 20, color: '#F59E0B' },
-  { name: 'Equipment', value: 12, color: '#E2725B' },
-  { name: 'Other', value: 5, color: '#78716C' },
+  { name: 'Cisterns', value: 45, color: '#3B82F6' },
+  { name: 'Sensors', value: 18, color: '#059669' },
+  { name: 'Installation', value: 15, color: '#F59E0B' },
+  { name: 'Training', value: 12, color: '#E2725B' },
+  { name: 'Operations', value: 10, color: '#78716C' },
 ];
 
 // Performance radar data
 const performanceRadarData = [
-  { category: 'Yield', current: 95, industry: 85 },
-  { category: 'Efficiency', current: 88, industry: 80 },
-  { category: 'Sustainability', current: 92, industry: 75 },
-  { category: 'Cost Control', current: 85, industry: 78 },
-  { category: 'Risk Mgmt', current: 78, industry: 70 },
+  { category: 'Yield', current: 88, industry: 75 },
+  { category: 'Efficiency', current: 86, industry: 72 },
+  { category: 'Resilience', current: 92, industry: 68 },
+  { category: 'Cost Control', current: 84, industry: 70 },
+  { category: 'Risk Mgmt', current: 80, industry: 66 },
 ];
 
 // Generated reports history
 const generatedReports = [
   {
     id: 1,
-    name: 'February 2026 Monthly Report',
+    name: 'May 2026 Pilot Brief',
     type: 'Monthly',
-    date: 'Feb 26, 2026',
-    size: '2.4 MB',
+    date: 'May 20, 2026',
+    size: '2.1 MB',
     format: 'PDF',
     status: 'ready',
   },
   {
     id: 2,
-    name: 'Q1 2026 Seasonal Analysis',
+    name: 'Katsina Pilot Impact',
     type: 'Seasonal',
-    date: 'Feb 20, 2026',
-    size: '3.8 MB',
+    date: 'May 12, 2026',
+    size: '3.2 MB',
     format: 'PDF',
     status: 'ready',
   },
   {
     id: 3,
-    name: 'Water Usage Report - Feb',
+    name: 'Water Release Log - May',
     type: 'Custom',
-    date: 'Feb 15, 2026',
-    size: '1.2 MB',
+    date: 'May 15, 2026',
+    size: '1.1 MB',
     format: 'Excel',
     status: 'ready',
   },
   {
     id: 4,
-    name: 'Weekly Summary - Week 8',
+    name: 'Weekly Summary - Week 20',
     type: 'Weekly',
-    date: 'Feb 19, 2026',
-    size: '856 KB',
+    date: 'May 18, 2026',
+    size: '812 KB',
     format: 'PDF',
     status: 'ready',
   },
   {
     id: 5,
-    name: 'Risk Analysis - January',
+    name: 'Stress Alerts - April',
     type: 'Custom',
-    date: 'Feb 1, 2026',
-    size: '1.8 MB',
+    date: 'May 2, 2026',
+    size: '1.4 MB',
     format: 'PDF',
     status: 'archived',
   },
   {
     id: 6,
-    name: 'Yield Forecast Report',
+    name: 'Yield Forecast - Q2',
     type: 'Custom',
-    date: 'Jan 28, 2026',
-    size: '945 KB',
+    date: 'Apr 28, 2026',
+    size: '930 KB',
     format: 'Excel',
     status: 'archived',
   },
@@ -184,10 +184,10 @@ export default function ReportsPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-[22px] font-semibold text-[var(--color-soil)] tracking-tight">
-              Reports & Analytics
+              Pilot Reports & Analytics
             </h1>
             <p className="text-[13px] text-[var(--color-stone)]">
-              Performance insights, historical analysis & data exports
+              Impact insights, performance analysis, and exports
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -204,7 +204,7 @@ export default function ReportsPage() {
 
         {/* Report Type Selection */}
         <div>
-          <h2 className="text-[15px] font-semibold text-[var(--color-soil)] mb-3">
+            <h2 className="text-[15px] font-semibold text-[var(--color-soil)] mb-3">
             Generate New Report
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -251,24 +251,24 @@ export default function ReportsPage() {
             <div className="space-y-4">
               <QuickStatCard
                 icon={Target}
-                label="Reports Generated"
-                value="24"
-                change="+6 this month"
+                label="Pilot Reports"
+                value="12"
+                change="+4 this month"
                 trend="up"
                 color="#059669"
               />
               <QuickStatCard
                 icon={TrendingUp}
-                label="Avg Performance"
-                value="87%"
-                change="+5% vs last period"
+                label="Resilience Index"
+                value="86%"
+                change="+6% vs last period"
                 trend="up"
                 color="#059669"
               />
               <QuickStatCard
                 icon={DollarSign}
                 label="Cost Savings"
-                value="$3,240"
+                value="₦520,000"
                 change="This season"
                 trend="positive"
                 color="#059669"
@@ -362,8 +362,8 @@ export default function ReportsPage() {
             <Card variant="bento" className="h-full">
               <CardContent className="p-5">
                 <div className="mb-4">
-                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Performance Index</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">vs Industry Avg</p>
+                  <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Resilience Index</h3>
+                  <p className="text-[12px] text-[var(--color-stone)]">vs Regional Avg</p>
                 </div>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
@@ -379,7 +379,7 @@ export default function ReportsPage() {
                         tick={{ fill: '#78716C', fontSize: 9 }}
                       />
                       <Radar
-                        name="Your Farm"
+                        name="Green Line"
                         dataKey="current"
                         stroke="#059669"
                         fill="#059669"
@@ -387,7 +387,7 @@ export default function ReportsPage() {
                         strokeWidth={2}
                       />
                       <Radar
-                        name="Industry Avg"
+                        name="Regional Avg"
                         dataKey="industry"
                         stroke="#78716C"
                         fill="#78716C"
@@ -412,7 +412,7 @@ export default function ReportsPage() {
               <CardContent className="p-5">
                 <div className="mb-4">
                   <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Cost Distribution</h3>
-                  <p className="text-[12px] text-[var(--color-stone)]">Operating expenses breakdown</p>
+                  <p className="text-[12px] text-[var(--color-stone)]">Pilot expenses breakdown</p>
                 </div>
                 <div className="flex items-center justify-center h-56">
                   <ResponsiveContainer width="100%" height="100%">
@@ -540,7 +540,7 @@ interface PerformanceMetricRowProps {
 function PerformanceMetricRow({ metric }: PerformanceMetricRowProps) {
   const vsTarget = ((metric.current - metric.target) / metric.target * 100).toFixed(1);
   const vsPrevious = ((metric.current - metric.previous) / metric.previous * 100).toFixed(1);
-  const isPositive = metric.metric === 'Cost per Hectare' || metric.metric === 'Risk Score' 
+  const isPositive = metric.metric === 'Cost per Hectare' || metric.metric === 'Stress Index' 
     ? metric.current < metric.target 
     : metric.current > metric.target;
   
@@ -560,19 +560,19 @@ function PerformanceMetricRow({ metric }: PerformanceMetricRowProps) {
         <div>
           <p className="text-[var(--color-stone)] mb-0.5">Current</p>
           <p className="text-[16px] font-semibold text-[var(--color-soil)]">
-            {metric.unit === '$' && '$'}{metric.current}{metric.unit !== '$' && metric.unit}
+            {metric.unit === '$' && '$'}{metric.unit === '₦' && '₦'}{metric.current}{metric.unit !== '$' && metric.unit !== '₦' && metric.unit}
           </p>
         </div>
         <div>
           <p className="text-[var(--color-stone)] mb-0.5">Target</p>
           <p className="text-[14px] font-medium text-[var(--color-stone)]">
-            {metric.unit === '$' && '$'}{metric.target}{metric.unit !== '$' && metric.unit}
+            {metric.unit === '$' && '$'}{metric.unit === '₦' && '₦'}{metric.target}{metric.unit !== '$' && metric.unit !== '₦' && metric.unit}
           </p>
         </div>
         <div>
           <p className="text-[var(--color-stone)] mb-0.5">Previous</p>
           <p className="text-[14px] font-medium text-[var(--color-stone)]">
-            {metric.unit === '$' && '$'}{metric.previous}{metric.unit !== '$' && metric.unit}
+            {metric.unit === '$' && '$'}{metric.unit === '₦' && '₦'}{metric.previous}{metric.unit !== '$' && metric.unit !== '₦' && metric.unit}
           </p>
         </div>
       </div>
@@ -682,8 +682,8 @@ function TrendTooltip({ active, payload, label }: any) {
           <div key={index} className="flex items-center justify-between gap-3">
             <span className="text-[11px] text-[var(--color-stone)] capitalize">{entry.dataKey}</span>
             <span className="text-[11px] font-medium" style={{ color: entry.color }}>
-              {entry.dataKey === 'cost' ? `$${entry.value}` : 
-               entry.dataKey === 'revenue' ? `$${entry.value}` :
+              {entry.dataKey === 'cost' ? `₦${entry.value}` : 
+               entry.dataKey === 'revenue' ? `₦${entry.value}` :
                `${entry.value} kg/ha`}
             </span>
           </div>

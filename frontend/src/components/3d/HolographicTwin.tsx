@@ -30,12 +30,14 @@ export function HolographicTwin({
   return (
     <div className={className}>
       <Canvas
-        camera={{ position: [8, 6, 8], fov: 40 }}
+        camera={{ position: [7.5, 6.5, 7.5], fov: 36 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[8, 10, 6]} intensity={0.9} color={color} />
+        <pointLight position={[-8, 6, -6]} intensity={0.5} color="#67E8F9" />
+        <spotLight position={[0, 12, 0]} intensity={1.1} angle={0.4} penumbra={0.6} color={color} />
         
         <HolographicScene color={color} stressIndex={stressIndex} showLabels={showLabels} />
         
@@ -43,12 +45,12 @@ export function HolographicTwin({
           enableZoom={false}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={0.7}
           maxPolarAngle={Math.PI / 2.2}
           minPolarAngle={Math.PI / 4}
         />
         
-        <Environment preset="city" />
+        <Environment preset="night" />
       </Canvas>
     </div>
   );
@@ -85,9 +87,35 @@ function HolographicScene({ color, stressIndex, showLabels }: SceneProps) {
       <CropZones color={color} stressIndex={stressIndex} />
       
       {/* Sensor nodes */}
-      <SensorNode position={[-2, 0, -2]} color={color} label="N1" showLabel={showLabels} />
-      <SensorNode position={[2, 0, -2]} color={color} label="N2" showLabel={showLabels} />
-      <SensorNode position={[0, 0, 2]} color={color} label="N3" showLabel={showLabels} />
+      <SensorNode position={[-2, 0, -2]} color={color} label="Node A" showLabel={showLabels} />
+      <SensorNode position={[2, 0, -2]} color={color} label="Node B" showLabel={showLabels} />
+      <SensorNode position={[0, 0, 2]} color={color} label="Node C" showLabel={showLabels} />
+
+      {/* Zai pit layout rings */}
+      <ZaiPitRings color={color} />
+
+      {showLabels && (
+        <Text
+          position={[0, 0.2, -4.6]}
+          fontSize={0.2}
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+        >
+          Zai Pit Layout
+        </Text>
+      )}
+      {showLabels && (
+        <Text
+          position={[3.8, 0.25, 4.2]}
+          fontSize={0.16}
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+        >
+          Musa's Farm Unit
+        </Text>
+      )}
       
       {/* Data streams */}
       <DataStream from={[-2, 0.5, -2]} to={[0, 1.5, 0]} color={color} />
@@ -278,19 +306,19 @@ function CentralHub({ color, stressIndex }: { color: string; stressIndex: number
       {/* Outer ring */}
       <mesh ref={ringRef}>
         <torusGeometry args={[0.4, 0.02, 8, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.5} />
+        <meshBasicMaterial color={color} transparent opacity={0.65} />
       </mesh>
       
       {/* Inner sphere */}
       <mesh>
         <icosahedronGeometry args={[0.2, 1]} />
-        <meshBasicMaterial color={color} transparent opacity={0.3} wireframe />
+        <meshBasicMaterial color={color} transparent opacity={0.4} wireframe />
       </mesh>
       
       {/* Center core */}
       <mesh>
         <sphereGeometry args={[0.1, 16, 16]} />
-        <meshBasicMaterial color={color} transparent opacity={0.7} />
+        <meshBasicMaterial color={color} transparent opacity={0.85} />
       </mesh>
     </group>
   );
@@ -314,11 +342,34 @@ function StressRing({ stressIndex, color }: { stressIndex: number; color: string
             <meshBasicMaterial 
               color={color} 
               transparent 
-              opacity={isFilled ? 0.6 : 0.15}
+              opacity={isFilled ? 0.75 : 0.18}
             />
           </mesh>
         );
       })}
+    </group>
+  );
+}
+
+function ZaiPitRings({ color }: { color: string }) {
+  const positions = useMemo(() => {
+    const layout: Array<[number, number, number]> = [];
+    for (let x = -2; x <= 2; x += 1) {
+      for (let z = -2; z <= 2; z += 1) {
+        layout.push([x, 0.02, z]);
+      }
+    }
+    return layout;
+  }, []);
+
+  return (
+    <group>
+      {positions.map((pos, i) => (
+        <mesh key={i} position={pos} rotation={[-Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[0.22, 0.02, 8, 20]} />
+          <meshBasicMaterial color={color} transparent opacity={0.4} />
+        </mesh>
+      ))}
     </group>
   );
 }
@@ -367,7 +418,7 @@ export function HolographicIndicator({ stressIndex = 25, className = '' }: { str
           {stressIndex}
         </span>
         <span className="text-[10px] text-[var(--color-stone)]">
-          Risk Index
+          Stress Index
         </span>
       </div>
     </div>

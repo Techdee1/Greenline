@@ -29,14 +29,14 @@ const sensorConfig: Record<SensorType, {
 }> = {
   moisture: {
     icon: Droplets,
-    label: 'Soil Moisture',
+    label: 'Root-Zone Moisture',
     color: '#22B8E8',
     colorClass: 'text-sky-500',
     gradient: 'from-sky-400/25 to-sky-500/10',
   },
   temperature: {
     icon: Thermometer,
-    label: 'Temperature',
+    label: 'Heat Index',
     color: '#E86B45',
     colorClass: 'text-orange-500',
     gradient: 'from-orange-400/25 to-orange-500/10',
@@ -57,7 +57,7 @@ const sensorConfig: Record<SensorType, {
   },
   rainfall: {
     icon: CloudRain,
-    label: 'Rainfall',
+    label: 'Rainfall (Last 24h)',
     color: '#22B8E8',
     colorClass: 'text-cyan-500',
     gradient: 'from-cyan-400/25 to-cyan-500/10',

@@ -14,64 +14,64 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, R
 
 // Historical risk data for trends
 const historicalRiskData = [
-  { date: 'Jan 15', overall: 18, drought: 25, pest: 12, disease: 8, weather: 15 },
-  { date: 'Jan 22', overall: 22, drought: 28, pest: 15, disease: 12, weather: 18 },
-  { date: 'Jan 29', overall: 28, drought: 35, pest: 18, disease: 15, weather: 22 },
-  { date: 'Feb 5', overall: 35, drought: 42, pest: 22, disease: 18, weather: 28 },
-  { date: 'Feb 12', overall: 42, drought: 48, pest: 28, disease: 24, weather: 35 },
-  { date: 'Feb 19', overall: 38, drought: 45, pest: 25, disease: 20, weather: 32 },
-  { date: 'Feb 26', overall: 32, drought: 38, pest: 22, disease: 18, weather: 28 },
+  { date: 'Feb 3', overall: 22, drought: 28, pest: 10, disease: 8, weather: 20 },
+  { date: 'Feb 10', overall: 28, drought: 34, pest: 12, disease: 10, weather: 24 },
+  { date: 'Feb 17', overall: 36, drought: 44, pest: 16, disease: 12, weather: 30 },
+  { date: 'Feb 24', overall: 42, drought: 52, pest: 18, disease: 14, weather: 35 },
+  { date: 'Mar 2', overall: 46, drought: 60, pest: 20, disease: 16, weather: 40 },
+  { date: 'Mar 9', overall: 41, drought: 54, pest: 18, disease: 14, weather: 34 },
+  { date: 'Mar 16', overall: 38, drought: 48, pest: 16, disease: 12, weather: 30 },
 ];
 
 // Risk factors with details
 const riskFactors = [
   {
     id: 1,
-    category: 'Drought Stress',
+    category: 'Water Stress',
     icon: Droplets,
     severity: 'high',
-    score: 65,
+    score: 62,
     trend: 'up',
-    description: 'Soil moisture 12% below optimal, 5 days without rain',
-    impact: 'Reduced yield potential by 8-15%',
-    timeframe: 'Next 7 days critical',
+    description: 'Root-zone moisture 9% below optimal, 12 days without rain',
+    impact: 'Potential 12-18% yield loss if untreated',
+    timeframe: 'Next 5 days critical',
     color: '#E2725B',
   },
   {
     id: 2,
-    category: 'Pest Pressure',
-    icon: Bug,
+    category: 'Heat Stress',
+    icon: Thermometer,
     severity: 'moderate',
-    score: 38,
-    trend: 'stable',
-    description: 'Fall armyworm activity detected in neighboring farms',
-    impact: 'Potential 5-10% crop damage if untreated',
-    timeframe: 'Monitor closely',
-    color: '#FBBF24',
+    score: 54,
+    trend: 'up',
+    description: 'Heat index above 35°C with clear skies forecasted',
+    impact: 'Higher evapotranspiration and crop stress',
+    timeframe: 'Next 4-6 days',
+    color: '#F59E0B',
   },
   {
     id: 3,
+    category: 'Pest Pressure',
+    icon: Bug,
+    severity: 'low',
+    score: 26,
+    trend: 'stable',
+    description: 'Low early activity in nearby plots, no active outbreaks',
+    impact: 'Minimal impact expected with scouting',
+    timeframe: 'Monitor weekly',
+    color: '#FBBF24',
+  },
+  {
+    id: 4,
     category: 'Disease Risk',
     icon: AlertTriangle,
     severity: 'low',
-    score: 22,
+    score: 18,
     trend: 'down',
     description: 'Low humidity reduces fungal disease probability',
     impact: 'Minimal impact expected',
     timeframe: 'Continue monitoring',
     color: '#86EFAC',
-  },
-  {
-    id: 4,
-    category: 'Weather Impact',
-    icon: Cloud,
-    severity: 'moderate',
-    score: 45,
-    trend: 'up',
-    description: 'High temperatures forecasted (32-35°C)',
-    impact: 'Heat stress on crops, increased water demand',
-    timeframe: 'Next 5-7 days',
-    color: '#F59E0B',
   },
 ];
 
@@ -79,30 +79,30 @@ const riskFactors = [
 const mitigationStrategies = [
   {
     id: 1,
-    title: 'Emergency Irrigation',
+    title: 'Release Cistern Water',
     priority: 'critical',
-    description: 'Apply 25mm irrigation within 48 hours to prevent permanent wilting',
-    cost: '$120-150',
+    description: 'Micro-dose 25mm into zai pits within 48 hours',
+    cost: '₦18,000',
     timeToImplement: '1-2 days',
-    effectiveness: 92,
+    effectiveness: 90,
   },
   {
     id: 2,
-    title: 'Pest Scouting & Control',
+    title: 'Shade & Mulch',
     priority: 'high',
-    description: 'Conduct field scouting, apply bio-pesticide if threshold exceeded',
-    cost: '$80-100',
-    timeToImplement: '3-5 days',
-    effectiveness: 85,
+    description: 'Apply organic mulch and temporary shade to reduce heat load',
+    cost: '₦12,000',
+    timeToImplement: '2-3 days',
+    effectiveness: 84,
   },
   {
     id: 3,
-    title: 'Mulching Application',
+    title: 'Targeted Scouting',
     priority: 'medium',
-    description: 'Apply organic mulch to conserve soil moisture and reduce heat stress',
-    cost: '$60-80',
-    timeToImplement: '2-3 days',
-    effectiveness: 78,
+    description: 'Scout for pests and apply bio-control if thresholds are reached',
+    cost: '₦8,000',
+    timeToImplement: '3-5 days',
+    effectiveness: 76,
   },
 ];
 
@@ -136,10 +136,10 @@ export default function RiskAnalysisPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-[22px] font-semibold text-[var(--color-soil)] tracking-tight">
-              Risk Analysis
+              Stress Analysis
             </h1>
             <p className="text-[13px] text-[var(--color-stone)]">
-              Comprehensive risk assessment & mitigation strategies
+              Explainable stress signals and response playbook
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -163,13 +163,13 @@ export default function RiskAnalysisPage() {
         {riskData && riskData.overallRisk > 40 && (
           <InsightCard
             priority="critical"
-            title="High Risk Alert"
-            description="Multiple risk factors detected requiring immediate attention"
+            title="High Stress Alert"
+            description="Multiple signals show root-zone stress building quickly"
             daysUntil={0}
             impactPercent={-12}
             confidence={87}
             action={{
-              label: 'View Mitigation Plan',
+              label: 'View Response Plan',
               onClick: () => console.log('View mitigation'),
             }}
           />
@@ -209,7 +209,7 @@ export default function RiskAnalysisPage() {
                     <TrendingDown className="w-4 h-4 text-[var(--color-emerald)]" />
                   </div>
                   <p className="text-[20px] font-semibold text-[var(--color-soil)]">3</p>
-                  <p className="text-[12px] text-[var(--color-stone)]">Active Risks</p>
+                  <p className="text-[12px] text-[var(--color-stone)]">Active Signals</p>
                 </CardContent>
               </Card>
               
@@ -222,7 +222,7 @@ export default function RiskAnalysisPage() {
                     <TrendingUp className="w-4 h-4 text-[var(--color-primary)]" />
                   </div>
                   <p className="text-[20px] font-semibold text-[var(--color-soil)]">65%</p>
-                  <p className="text-[12px] text-[var(--color-stone)]">Highest Factor</p>
+                  <p className="text-[12px] text-[var(--color-stone)]">Peak Stress</p>
                 </CardContent>
               </Card>
               
@@ -234,7 +234,7 @@ export default function RiskAnalysisPage() {
                     </div>
                   </div>
                   <p className="text-[20px] font-semibold text-[var(--color-soil)]">7 days</p>
-                  <p className="text-[12px] text-[var(--color-stone)]">Critical Window</p>
+                  <p className="text-[12px] text-[var(--color-stone)]">Response Window</p>
                 </CardContent>
               </Card>
             </div>
@@ -246,8 +246,8 @@ export default function RiskAnalysisPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Risk Trends</h3>
-                    <p className="text-[12px] text-[var(--color-stone)]">Historical risk progression</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Stress Trends</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Historical stress progression</p>
                   </div>
                 </div>
                 <div className="h-64">
@@ -315,7 +315,7 @@ export default function RiskAnalysisPage() {
           <div className="col-span-12 lg:col-span-4">
             <Card variant="bento" className="h-full">
               <CardContent className="p-5">
-                <h3 className="text-[15px] font-semibold text-[var(--color-soil)] mb-4">Risk Breakdown</h3>
+                <h3 className="text-[15px] font-semibold text-[var(--color-soil)] mb-4">Stress Breakdown</h3>
                 {riskData && (
                   <RiskBreakdown
                     items={riskData.breakdown.map(b => ({
@@ -334,7 +334,7 @@ export default function RiskAnalysisPage() {
           <div className="col-span-12">
             <Card variant="bento">
               <CardContent className="p-5">
-                <h3 className="text-[15px] font-semibold text-[var(--color-soil)] mb-4">Risk Factors</h3>
+                <h3 className="text-[15px] font-semibold text-[var(--color-soil)] mb-4">Stress Signals</h3>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {riskFactors.map((factor) => (
                     <RiskFactorCard key={factor.id} factor={factor} />
@@ -350,11 +350,11 @@ export default function RiskAnalysisPage() {
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Mitigation Strategies</h3>
-                    <p className="text-[12px] text-[var(--color-stone)]">Recommended actions to reduce risk</p>
+                    <h3 className="text-[15px] font-semibold text-[var(--color-soil)]">Response Playbook</h3>
+                    <p className="text-[12px] text-[var(--color-stone)]">Recommended actions to protect yield</p>
                   </div>
                   <Button variant="primary" size="sm">
-                    Implement Plan
+                    Deploy Response
                   </Button>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -467,7 +467,7 @@ function MitigationCard({ strategy }: MitigationCardProps) {
         </div>
       </div>
       <button className="w-full mt-3 py-2 rounded-lg bg-[var(--color-primary)] text-white text-[12px] font-medium hover:bg-[var(--color-primary)]/90 transition-colors flex items-center justify-center gap-1">
-        Implement
+        Deploy
         <ChevronRight className="w-3.5 h-3.5" />
       </button>
     </div>
